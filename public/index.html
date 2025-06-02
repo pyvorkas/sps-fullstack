@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>Správa aut v autopůjčovně</title>
 </head>
 
 <body>
     <h1>Todo List</h1>
     <section>
-        <h2>Přidat nový úkol</h2>
+        <h2>Správa aut v autopůjčovně</h2>
         <form id="todo-form">
-            <div> <label for="name">Název úkolu:</label>
+            <div> <label for="name">Značka: </label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div> <label for="description">Popis:</label>
+            <div> <label for="description">Model:</label>
                 <textarea id="description" name="description"></textarea>
             </div>
-            <div> <button type="submit">Přidat úkol</button>
+            <div> <button type="submit">Přidat auto</button>
             </div>
         </form>
     </section>
     <section>
-        <h2>Seznam úkolů</h2>
+        <h2>Seznam aut</h2>
         <ul id="todo-list"> <!-- Zde se budou zobrazovat úkoly -->
         </ul>
     </section>
@@ -44,7 +44,7 @@
                     document.getElementById('todo-form').reset();
                     fetchTodos();
                 } else {
-                    alert('Chyba při přidávání úkolu');
+                    alert('Chyba při přidávání auta');
                 }
             } catch (error) {
                 console.error('Chyba:', error);
@@ -63,7 +63,7 @@
                     todoList.appendChild(li);
                 });
             } catch (error) {
-                console.error('Chyba při načítání úkolů:', error);
+                console.error('Chyba při načítání auta:', error);
             }
         }
     </script>
