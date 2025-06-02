@@ -1,4 +1,4 @@
-# Jméno Příjmení
+# Martin Rývora
 ---
 ## Zvolené rozšíření
 - Popisek
