@@ -1,6 +1,22 @@
--- Vytvor tabulku "items"
-CREATE TABLE IF NOT EXISTS items ( 
+CREATE TABLE IF NOT EXISTS cars (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL, 
-  description TEXT
+  make TEXT NOT NULL,
+  model TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS customers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname TEXT NOT NULL,
+  lastname TEXT NOT NULL,
+  driver_license TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS rentals (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  car_id INTEGER NOT NULL,
+  customer_id INTEGER NOT NULL,
+  rental_date TEXT NOT NULL,
+  return_date TEXT NOT NULL,
+  FOREIGN KEY (car_id) REFERENCES cars (id) ON DELETE CASCADE,
+  FOREIGN KEY (customer_id) REFERENCES customers (id) ON DELETE CASCADE
 );
