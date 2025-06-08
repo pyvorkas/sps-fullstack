@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 // Správný import db objektu
-const { db } = require('../database/db');
+import { db } from '../database/db.js';
 
 const router = express.Router();
 
@@ -197,4 +197,4 @@ router.delete('/rentals/:id', (req, res) => {
   });
 });
 
-module.exports = router;
+export default router;

@@ -1,10 +1,14 @@
-const express = require('express');
-const path = require('path');
-// Správný import funkce initializeDatabase
-const { initializeDatabase } = require('./database/db');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { initializeDatabase } from './database/db.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Pro ES moduly potřebujeme získat __dirname
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -12,7 +16,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // API cesty
-const apiRoutes = require('./api/api');
+import apiRoutes from './api/api.js';
 app.use('/api', apiRoutes);
 
 // Inicializace databáze a spuštění serveru
