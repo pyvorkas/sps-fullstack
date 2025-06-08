@@ -1,10 +1,12 @@
 # Martin Rývora
----
+
 ## Zvolené rozšíření
-- Popisek
-- Popisek2
----
+- Dokumentace pomocí VitePress
+- Responzivní design pro mobilní zařízení
+
 ## Spuštění aplikace
 
-- Popisek
-- Popisek2
+- Instalace závislostí: `npm install`
+- Spuštění aplikace: `npm start`
+- Naplnění databáze ukázkovými daty: `npm run seed`
+- Spuštění dokumentace: `npm run docs:dev`
