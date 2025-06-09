@@ -8,5 +8,5 @@
 
 - Instalace závislostí: `npm install`
 - Spuštění aplikace: `npm start`
-- Naplnění databáze ukázkovými daty: `npm run seed`
+- Naplnění databáze ukázkovými daty: `node database/seed.cjs`
 - Spuštění dokumentace: `npm run docs:dev`
