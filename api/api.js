@@ -1,6 +1,6 @@
 import express from 'express';
 // Správný import db objektu
-import { db } from '../database/db.js';
+import { db } from '../database/db.cjs';
 
 const router = express.Router();
 

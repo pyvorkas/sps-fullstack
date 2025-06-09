@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "description": "Správa aut v autopůjčovně",
   "main": "server.js",
-  
+  "type": "module",
   "scripts": {
     "start": "node server.js",
     "seed": "node database/seed.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "type": "module"
+    "docs:preview": "vitepress preview docs"
   },
   "author": "Martin Rývora",
   "license": "ISC",

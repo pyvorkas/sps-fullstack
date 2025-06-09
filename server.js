@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { initializeDatabase } from './database/db.js';
+import { initializeDatabase } from './database/db.cjs';
 
 const app = express();
 const port = process.env.PORT || 3000;
