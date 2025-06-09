@@ -9,8 +9,11 @@
   --gray: #e9ecef;
   --gray-dark: #6c757d;
   --text-color: #2c3e50;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.15);
   --transition: all 0.3s ease;
+  --radius: 12px;
+  --scale-hover: scale(1.02);
 }
 
 * {
@@ -26,39 +29,51 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f7fa;
+  background: linear-gradient(135deg, #e3edf7, #f5f7fa);
+  transition: background 0.6s ease;
 }
 
 header {
   margin-bottom: 30px;
   background-color: white;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   box-shadow: var(--shadow);
+  transition: var(--transition);
 }
 
 h1 {
   margin-bottom: 20px;
   text-align: center;
   color: var(--primary-dark);
+  font-size: 2.4rem;
+  animation: fadeInDown 0.6s ease-out;
 }
 
-h2 {
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2, h3 {
+  margin-bottom: 15px;
   color: var(--primary-dark);
-  margin-bottom: 15px;
-}
-
-h3 {
-  color: var(--text-color);
-  margin-bottom: 15px;
 }
 
 nav ul {
   display: flex;
   list-style: none;
   background-color: var(--gray-light);
-  border-radius: 8px;
+  border-radius: var(--radius);
   overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
 }
 
 nav ul li {
@@ -77,6 +92,7 @@ nav ul li a {
 
 nav ul li a:hover {
   background-color: var(--gray);
+  transform: var(--scale-hover);
 }
 
 nav ul li a.active {
@@ -86,24 +102,31 @@ nav ul li a.active {
 
 .section {
   display: none;
-  animation: fadeIn 0.5s;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  animation: fadeIn 0.5s ease-in;
 }
 
 .section.active {
   display: block;
 }
 
-.form-container, .list-container {
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.form-container,
+.list-container {
   background-color: white;
   padding: 25px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   margin-bottom: 30px;
   box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.form-container:hover,
+.list-container:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .form-group {
@@ -114,18 +137,20 @@ nav ul li a.active {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: var(--text-color);
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--gray);
   border-radius: 6px;
   transition: var(--transition);
+  font-size: 1rem;
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus,
+.form-group select:focus {
   border-color: var(--primary-color);
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
@@ -134,29 +159,41 @@ nav ul li a.active {
 .form-actions {
   display: flex;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: var(--transition);
   font-weight: bold;
+  font-size: 1rem;
+  transition: var(--transition);
+  transform-origin: center;
 }
 
 button:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-2px);
+  transform: translateY(-3px) var(--scale-hover);
+  box-shadow: var(--shadow-hover);
 }
 
-button#car-cancel, button#customer-cancel, button#rental-cancel {
+button:active {
+  transform: scale(0.98);
+}
+
+button#car-cancel,
+button#customer-cancel,
+button#rental-cancel {
   background-color: var(--gray-dark);
 }
 
-button#car-cancel:hover, button#customer-cancel:hover, button#rental-cancel:hover {
+button#car-cancel:hover,
+button#customer-cancel:hover,
+button#rental-cancel:hover {
   background-color: #5a6268;
 }
 
@@ -164,12 +201,14 @@ table {
   width: 100%;
   border-collapse: collapse;
   box-shadow: var(--shadow);
-  border-radius: 8px;
+  border-radius: var(--radius);
   overflow: hidden;
+  animation: fadeIn 0.4s;
 }
 
-table th, table td {
-  padding: 12px 15px;
+table th,
+table td {
+  padding: 14px 18px;
   text-align: left;
 }
 
@@ -177,6 +216,7 @@ table th {
   background-color: var(--primary-color);
   color: white;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 table tr {
@@ -190,16 +230,18 @@ table tr:nth-child(even) {
 
 table tr:hover {
   background-color: rgba(52, 152, 219, 0.1);
+  transform: scale(1.005);
 }
 
 .action-btn {
-  margin-right: 8px;
-  padding: 6px 12px;
-  font-size: 0.85em;
-  border-radius: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  padding: 8px 14px;
+  font-size: 0.9em;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
 }
 
 .edit-btn {
@@ -223,20 +265,20 @@ table tr:hover {
   body {
     padding: 10px;
   }
-  
+
   .form-actions {
     flex-direction: column;
   }
-  
+
   table {
     display: block;
     overflow-x: auto;
   }
-  
+
   nav ul {
     flex-direction: column;
   }
-  
+
   nav ul li a {
     border-radius: 0;
   }
@@ -261,14 +303,17 @@ table tr:hover {
 
 .back-home {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 14px 28px;
   background-color: var(--primary-color);
   color: white;
   text-decoration: none;
   border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
   transition: var(--transition);
 }
 
 .back-home:hover {
   background-color: var(--primary-dark);
+  transform: var(--scale-hover);
 }
