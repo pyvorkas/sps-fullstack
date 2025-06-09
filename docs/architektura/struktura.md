@@ -17,7 +17,7 @@ sps-fullstack/
 │   │
 │   └───assets/       # Statické assety
 │       │   styles.css    # CSS styly
-│       │   script.js     # Frontend JavaScript
+│       │   script.cjs     # Frontend JavaScript
 │       │   favicon.ico   # Favicon
 │   
 └───api/              # Backend API
@@ -26,7 +26,7 @@ sps-fullstack/
 └───database/         # Databázová vrstva
 │   │   db.js         # Připojení k databázi
 │   │   schema.sql    # Definice schématu
-│   │   seed.js       # Skript pro naplnění databáze
+│   │   seed.cjs       # Skript pro naplnění databáze
 │   │   seed.sql      # Data pro naplnění databáze
 │   
 └───docs/             # Dokumentace
